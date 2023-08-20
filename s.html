@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>¿Quieres ser mi novia?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://www.10wallpaper.com/wallpaper/2560x1920/1712/Romantic_love_couple_tears_2017_Anime_Poster_4K_Ultra_HD_2560x1920.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            color: #fff;
+        }
+
+        #main-text {
+            font-size: 44px; /* tamaño */
+            margin-bottom: 20px;
+            color: #FF69B4; /* Color rosado */
+        }
+
+        #buttons-container {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .action-button {
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        #yes-button {
+            background-color: #4CAF50;
+        }
+
+        #no-button {
+            background-color: #FF5733;
+        }
+
+        #image-container {
+            display: none;
+            margin-top: 50px;
+        }
+
+        #image-container img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+
+        #image-container p {
+            font-size: 30px;
+            color: #FF69B4; /* Color rosado */
+        }
+
+        .larger-text {
+            font-size: 24px; /* Tamaño de fuente agrandado */
+        }
+    </style>
+</head>
+<body>
+    <div id="main-text">¿Quieres ser mi novia?</div>
+    <div id="buttons-container">
+        <button id="yes-button" class="action-button" onclick="showImageAndText()">Sí</button>
+        <button id="no-button" class="action-button" onclick="handleNoButtonClick()">No</button>
+    </div>
+    <div id="image-container">
+        <img src="https://aniyuki.com/wp-content/uploads/2022/03/maxresdefault-1-1024x576.jpg" alt="Imagen">
+        <p class="larger-text">¡SABÍA QUE SÍ QUERÍAS! AHORA YA SOMOS NOVIOS 😍</p>
+    </div>
+
+    <script>
+        var noButtonClickCount = 0;
+
+        function randomizeNoButtonPosition() {
+            var noButton = document.getElementById("no-button");
+            var x = Math.floor(Math.random() * (window.innerWidth - noButton.clientWidth));
+            var y = Math.floor(Math.random() * (window.innerHeight - noButton.clientHeight));
+            noButton.style.position = "absolute";
+            noButton.style.left = x + "px";
+            noButton.style.top = y + "px";
+        }
+
+        function showImageAndText() {
+            var imageContainer = document.getElementById("image-container");
+            imageContainer.style.display = "block";
+            var mainText = document.getElementById("main-text");
+            mainText.style.display = "none";
+            var buttonsContainer = document.getElementById("buttons-container");
+            buttonsContainer.style.display = "none";
+        }
+
+        function handleNoButtonClick() {
+            noButtonClickCount++;
+            if (noButtonClickCount > 5) {
+                var noButton = document.getElementById("no-button");
+                noButton.textContent = "¿Ya te cansaste?. Yo sé que, si quieres";
+                noButton.disabled = true;
+            } else {
+                randomizeNoButtonPosition();
+            }
+        }
+    </script>
+</body>
+</html>
